@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>background.jpg</file>
+        <file>Rose_Logo.png</file>
+        <file>Starborn.ttf</file>
+    </qresource>
+</RCC>
