@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     downloadRemoteVersion();
 
 
-    view->setUrl(QUrl("http://jibestudio.net/rose_online_patches_notes"));
+    view->setUrl(QUrl("your_url"));
     layout->addWidget(view);  // Ajouter la WebView au layout
 
     // Appliquer le layout au frame
@@ -56,7 +56,7 @@ void MainWindow::onPlayButtonClicked()
 
     // Arguments à passer à Trose.exe
     QStringList arguments;
-    arguments << "@TRIGGER_SOFT@" << "_server" << "158.220.110.65";
+    arguments << "@TRIGGER_SOFT@" << "_server" << "your_ip";
 
     // Lancer le fichier avec les arguments
     process->start(executablePath, arguments);
@@ -77,7 +77,7 @@ QString MainWindow::readLocalVersion()
 void MainWindow::downloadRemoteVersion()
 {
     // URL du fichier version distant sur le serveur
-    QUrl url("https://patch.jibestudio.net/version.ini");
+    QUrl url("your_ini_url");
     QNetworkRequest request(url);
 
     QNetworkReply* reply = manager->get(request);
@@ -127,7 +127,7 @@ void MainWindow::compareVersions(const QString &remoteVersion)
 
         if (localPart < remotePart) {
             qDebug() << "Mise à jour disponible !"; // Version distante est plus récente
-            downloadAndUnzip("https://patch.jibestudio.net/update-" + remoteVersion + ".zip", QDir::currentPath());
+            downloadAndUnzip("your_patch_file_url" + remoteVersion + ".zip", QDir::currentPath());
             return; // Pas besoin de vérifier plus loin
         } else if (localPart > remotePart) {
             qDebug() << "Le jeu est à jour."; // Version locale est plus récente ou égale
